@@ -1,48 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A S M Tahmir Hasan | Cybersecurity Portfolio</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A S M Tahmir Hasan | Cybersecurity Professional</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --red: #C0392B;
-      --red-dim: #8B1A11;
-      --dark: #0D1117;
-      --dark2: #161B22;
-      --dark3: #1C2333;
-      --panel: #1E2736;
-      --border: #2A3444;
-      --text: #CDD9E5;
-      --text-dim: #768390;
-      --mono: 'Share Tech Mono', monospace;
-      --sans: 'Barlow', sans-serif;
-      --cond: 'Barlow Condensed', sans-serif;
+      --navy:   #0B1F3A;
+      --navy2:  #132944;
+      --gold:   #B08D57;
+      --gold2:  #C9A96E;
+      --white:  #FFFFFF;
+      --off:    #F7F5F2;
+      --text:   #2C2C2C;
+      --muted:  #6B7280;
+      --border: #DDD8D0;
+      --serif:  'Playfair Display', Georgia, serif;
+      --sans:   'Source Sans 3', sans-serif;
+      --mono:   'Source Code Pro', monospace;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--dark);
+      background: var(--white);
       color: var(--text);
       font-family: var(--sans);
       font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── SCANLINE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-      pointer-events: none;
-      z-index: 9999;
+      line-height: 1.7;
     }
 
     /* ── NAV ── */
@@ -50,368 +38,396 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
+      background: var(--navy);
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 3rem;
-      height: 60px;
-      background: rgba(13,17,23,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      gap: 2rem;
     }
 
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--red);
-      letter-spacing: 2px;
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--gold2);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-links {
-      display: flex;
-      gap: 2rem;
       list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      flex-shrink: 0;
     }
 
     .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text-dim);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
-    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover { color: var(--gold2); }
 
     /* ── HERO ── */
     #hero {
+      background: var(--navy);
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 80px 3rem 3rem;
+      padding: 80px 4rem 4rem;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-bg {
+    #hero::after {
+      content: '';
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(192,57,43,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(192,57,43,0.05) 0%, transparent 50%);
+      bottom: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 40%, rgba(176,141,87,0.06) 100%);
+      pointer-events: none;
     }
 
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(192,57,43,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(192,57,43,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: center;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-    }
-
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--red);
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
       opacity: 0;
-      animation: fadeUp 0.6s ease 0.2s forwards;
+      animation: fadeUp 0.7s ease 0.2s forwards;
     }
 
     .hero-name {
-      font-family: var(--cond);
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 900;
-      line-height: 0.9;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 1.5rem;
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1rem;
       opacity: 0;
-      animation: fadeUp 0.6s ease 0.4s forwards;
+      animation: fadeUp 0.7s ease 0.4s forwards;
     }
 
-    .hero-name span { color: var(--red); }
+    .hero-title {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+
+    .hero-title strong {
+      color: var(--gold2);
+      font-weight: 600;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.7s forwards;
+    }
 
     .hero-desc {
-      font-size: 1.1rem;
-      color: var(--text-dim);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
       font-weight: 300;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
       opacity: 0;
-      animation: fadeUp 0.6s ease 0.6s forwards;
+      animation: fadeUp 0.7s ease 0.8s forwards;
     }
 
-    .hero-links {
+    .hero-btns {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       opacity: 0;
-      animation: fadeUp 0.6s ease 0.8s forwards;
+      animation: fadeUp 0.7s ease 1s forwards;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.7rem 1.5rem;
-      font-family: var(--mono);
+      padding: 0.75rem 1.8rem;
+      font-family: var(--sans);
       font-size: 0.8rem;
-      letter-spacing: 1px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       text-decoration: none;
-      border-radius: 3px;
-      transition: all 0.2s;
+      border-radius: 2px;
+      transition: all 0.25s;
       cursor: pointer;
       border: none;
     }
 
-    .btn-primary {
-      background: var(--red);
-      color: #fff;
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
     }
 
-    .btn-primary:hover { background: #e74c3c; transform: translateY(-2px); }
+    .btn-gold:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(176,141,87,0.3); }
 
-    .btn-outline {
+    .btn-ghost {
       background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
-    .btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold2); transform: translateY(-2px); }
 
-    .hero-stats {
-      position: absolute;
-      right: 3rem;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(176,141,87,0.2);
+      padding: 2rem;
       opacity: 0;
-      animation: fadeLeft 0.6s ease 1s forwards;
+      animation: fadeLeft 0.7s ease 1s forwards;
     }
 
-    .stat-box {
-      text-align: right;
-      padding: 1rem 1.5rem;
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      border-right: 3px solid var(--red);
-    }
-
-    .stat-num {
-      font-family: var(--cond);
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: var(--red);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: var(--mono);
+    .hero-card-title {
+      font-family: var(--sans);
       font-size: 0.7rem;
-      color: var(--text-dim);
-      letter-spacing: 1px;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(176,141,87,0.2);
     }
 
-    /* ── SECTIONS ── */
-    section {
-      padding: 6rem 3rem;
-      max-width: 1200px;
+    .hero-card-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero-card-item:last-child { border-bottom: none; }
+
+    .hci-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+    }
+
+    .hci-val {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 4rem;
+    }
+
+    .section-wrap.alt {
+      background: var(--off);
+      max-width: 100%;
+      padding: 6rem 4rem;
+    }
+
+    .section-wrap.alt .section-inner {
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .section-num {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--red);
-      letter-spacing: 2px;
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
     }
 
     .section-title {
-      font-family: var(--cond);
-      font-size: 2.2rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #fff;
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
     }
 
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+    .section-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 3rem;
     }
 
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
       align-items: start;
     }
 
     .about-text p {
-      color: var(--text-dim);
-      margin-bottom: 1rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
       font-weight: 300;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .about-text p strong { color: var(--text); font-weight: 600; }
 
-    .about-details {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
+    .about-info { display: flex; flex-direction: column; gap: 0; }
 
-    .detail-row {
-      display: flex;
-      align-items: center;
+    .info-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
       gap: 1rem;
-      padding: 0.8rem 1rem;
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .detail-label {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--red);
-      letter-spacing: 1px;
+    .info-row:first-child { border-top: 1px solid var(--border); }
+
+    .info-key {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      min-width: 90px;
+      color: var(--muted);
+      padding-top: 2px;
     }
 
-    .detail-val {
+    .info-val {
       font-size: 0.9rem;
       color: var(--text);
     }
 
-    .detail-val a { color: var(--red); text-decoration: none; }
-    .detail-val a:hover { text-decoration: underline; }
+    .info-val a { color: var(--gold); text-decoration: none; }
+    .info-val a:hover { text-decoration: underline; }
 
     /* ── SKILLS ── */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
     }
 
-    .skill-category {
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      padding: 1.5rem;
-    }
+    .skill-group { }
 
-    .skill-cat-title {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--red);
+    .skill-group-title {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
+      color: var(--navy);
       margin-bottom: 1.2rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
     }
 
     .skill-item {
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
-    .skill-info {
+    .skill-row {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
-    .skill-name {
-      font-size: 0.85rem;
-      color: var(--text);
-    }
+    .skill-name { font-size: 0.88rem; color: var(--text); font-weight: 400; }
 
     .skill-pct {
       font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--red);
+      font-size: 0.72rem;
+      color: var(--gold);
+      font-weight: 600;
     }
 
-    .skill-bar-bg {
-      height: 3px;
+    .skill-track {
+      height: 2px;
       background: var(--border);
-      border-radius: 2px;
+      border-radius: 1px;
       overflow: hidden;
     }
 
-    .skill-bar-fill {
+    .skill-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--red-dim), var(--red));
-      border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 100%);
       width: 0;
-      transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* ── EXPERIENCE ── */
-    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
 
-    .exp-card {
+    .exp-item {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2rem;
-      padding: 1.5rem;
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      transition: border-color 0.2s;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .exp-card:hover { border-color: var(--red); }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+
+    .exp-meta { }
 
     .exp-date {
       font-family: var(--mono);
       font-size: 0.75rem;
-      color: var(--red);
+      color: var(--gold);
+      font-weight: 600;
       letter-spacing: 1px;
-      padding-top: 3px;
-    }
-
-    .exp-role {
-      font-family: var(--cond);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
     }
 
     .exp-org {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text-dim);
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .exp-role {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
       margin-bottom: 0.8rem;
     }
 
@@ -424,66 +440,54 @@
 
     .exp-bullets li {
       font-size: 0.9rem;
-      color: var(--text-dim);
+      color: var(--muted);
+      font-weight: 300;
       padding-left: 1.2rem;
       position: relative;
-      font-weight: 300;
+      line-height: 1.6;
     }
 
     .exp-bullets li::before {
-      content: '▸';
+      content: '—';
       position: absolute;
       left: 0;
-      color: var(--red);
-      font-size: 0.7rem;
-      top: 3px;
+      color: var(--gold);
+      font-size: 0.75rem;
     }
 
     /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
     }
 
     .project-card {
-      background: var(--dark2);
+      background: var(--white);
       border: 1px solid var(--border);
-      padding: 1.8rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
+      padding: 2rem;
+      transition: box-shadow 0.25s, transform 0.25s;
     }
 
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--red-dim), var(--red));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+    .project-card:hover {
+      box-shadow: 0 8px 32px rgba(11,31,58,0.08);
+      transform: translateY(-3px);
     }
 
-    .project-card:hover::before { transform: scaleX(1); }
-    .project-card:hover { border-color: var(--red); transform: translateY(-3px); }
-
-    .project-title {
-      font-family: var(--cond);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-date {
+    .project-num {
       font-family: var(--mono);
       font-size: 0.7rem;
-      color: var(--red);
+      color: var(--gold);
       letter-spacing: 1px;
       margin-bottom: 0.8rem;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
     }
 
     .project-stack {
@@ -496,24 +500,17 @@
     .tag {
       font-family: var(--mono);
       font-size: 0.65rem;
+      font-weight: 600;
       padding: 0.2rem 0.6rem;
-      background: rgba(192,57,43,0.12);
-      border: 1px solid rgba(192,57,43,0.3);
-      color: var(--red);
-      border-radius: 2px;
+      background: var(--off);
+      border: 1px solid var(--border);
+      color: var(--navy);
       letter-spacing: 0.5px;
-    }
-
-    .project-desc {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      font-weight: 300;
-      line-height: 1.7;
+      border-radius: 1px;
     }
 
     .project-bullets {
       list-style: none;
-      margin-top: 0.8rem;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -521,324 +518,309 @@
 
     .project-bullets li {
       font-size: 0.85rem;
-      color: var(--text-dim);
-      padding-left: 1.1rem;
-      position: relative;
+      color: var(--muted);
       font-weight: 300;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
     }
 
     .project-bullets li::before {
-      content: '▸';
+      content: '—';
       position: absolute;
       left: 0;
-      color: var(--red);
-      font-size: 0.65rem;
-      top: 3px;
+      color: var(--gold);
+      font-size: 0.72rem;
     }
 
     /* ── HOMELAB ── */
     .homelab-intro {
       font-size: 1rem;
-      color: var(--text-dim);
-      max-width: 700px;
-      margin-bottom: 2.5rem;
+      color: var(--muted);
       font-weight: 300;
-      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 3rem;
+      line-height: 1.85;
     }
 
     .homelab-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
 
     .homelab-card {
-      background: var(--dark2);
+      background: var(--white);
       border: 1px solid var(--border);
-      padding: 1.4rem;
-      transition: border-color 0.2s;
+      border-top: 3px solid var(--gold);
+      padding: 1.6rem;
+      transition: box-shadow 0.2s;
     }
 
-    .homelab-card:hover { border-color: var(--red); }
-
-    .homelab-card-icon {
-      font-size: 1.6rem;
-      margin-bottom: 0.7rem;
-    }
+    .homelab-card:hover { box-shadow: 0 4px 20px rgba(11,31,58,0.07); }
 
     .homelab-card-title {
-      font-family: var(--cond);
-      font-size: 1rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--navy);
       text-transform: uppercase;
-      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.3rem;
     }
 
     .homelab-card-sub {
       font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--red);
-      margin-bottom: 0.6rem;
+      font-size: 0.68rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
     }
 
     .homelab-card-desc {
-      font-size: 0.85rem;
-      color: var(--text-dim);
+      font-size: 0.83rem;
+      color: var(--muted);
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* ── CERTS ── */
     .certs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .cert-card {
-      background: var(--dark2);
+      background: var(--white);
       border: 1px solid var(--border);
-      padding: 1.8rem;
+      padding: 2rem;
       display: flex;
-      gap: 1.2rem;
+      gap: 1.5rem;
       align-items: flex-start;
-      transition: border-color 0.2s;
+      transition: box-shadow 0.2s;
     }
 
-    .cert-card:hover { border-color: var(--red); }
+    .cert-card:hover { box-shadow: 0 4px 20px rgba(11,31,58,0.07); }
 
-    .cert-icon {
-      font-size: 2rem;
+    .cert-badge {
+      width: 48px;
+      height: 48px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
+      font-size: 1.3rem;
     }
 
     .cert-name {
-      font-family: var(--cond);
-      font-size: 1.1rem;
+      font-family: var(--serif);
+      font-size: 1rem;
       font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
+      color: var(--navy);
       margin-bottom: 0.2rem;
     }
 
     .cert-issuer {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 600;
       letter-spacing: 1px;
-      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
     }
 
     .cert-date {
-      font-size: 0.8rem;
-      color: var(--text-dim);
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 300;
     }
 
     /* ── EDUCATION ── */
-    .edu-grid {
+    .edu-list { display: flex; flex-direction: column; gap: 0; }
+
+    .edu-item {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .edu-card {
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--red);
-      padding: 1.8rem;
+    .edu-item:first-child { border-top: 1px solid var(--border); }
+
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     .edu-degree {
-      font-family: var(--cond);
-      font-size: 1.2rem;
+      font-family: var(--serif);
+      font-size: 1.15rem;
       font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
     }
 
     .edu-school {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--red);
-      letter-spacing: 1px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
       margin-bottom: 0.6rem;
     }
 
     .edu-detail {
       font-size: 0.85rem;
-      color: var(--text-dim);
+      color: var(--muted);
+      font-weight: 300;
       line-height: 1.7;
     }
 
     /* ── ACTIVITIES ── */
-    .activities-list {
+    .act-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
-    .activity-card {
-      background: var(--dark2);
+    .act-card {
+      padding: 1.8rem;
       border: 1px solid var(--border);
-      padding: 1.4rem;
-      transition: border-color 0.2s;
+      background: var(--white);
+      transition: box-shadow 0.2s;
     }
 
-    .activity-card:hover { border-color: var(--red); }
+    .act-card:hover { box-shadow: 0 4px 20px rgba(11,31,58,0.07); }
 
-    .activity-title {
-      font-family: var(--cond);
+    .act-title {
+      font-family: var(--serif);
       font-size: 1rem;
       font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
+      color: var(--navy);
       margin-bottom: 0.2rem;
     }
 
-    .activity-meta {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--red);
+    .act-meta {
+      font-size: 0.75rem;
+      font-weight: 600;
       letter-spacing: 1px;
-      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
     }
 
-    .activity-desc {
+    .act-desc {
       font-size: 0.85rem;
-      color: var(--text-dim);
+      color: var(--muted);
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* ── CONTACT ── */
     #contact {
-      background: var(--dark2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 5rem 3rem;
+      background: var(--navy);
+      padding: 6rem 4rem;
     }
 
     .contact-inner {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
     }
+
+    .contact-inner .section-title { color: var(--white); }
+    .contact-inner .section-label { color: var(--gold); }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .contact-text h2 {
-      font-family: var(--cond);
-      font-size: 2.5rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 1rem;
+      gap: 5rem;
+      align-items: start;
     }
 
     .contact-text p {
-      color: var(--text-dim);
+      color: rgba(255,255,255,0.5);
       font-weight: 300;
       line-height: 1.8;
+      margin-bottom: 2rem;
     }
 
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .contact-items { display: flex; flex-direction: column; gap: 0; }
 
-    .contact-link {
+    .contact-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      background: var(--dark);
-      border: 1px solid var(--border);
+      gap: 1.5rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.2s, transform 0.2s;
+      transition: padding-left 0.2s;
     }
 
-    .contact-link:hover { border-color: var(--red); color: var(--red); transform: translateX(4px); }
+    .contact-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .contact-item:hover { padding-left: 6px; }
 
-    .contact-link-label {
-      font-family: var(--mono);
+    .ci-label {
       font-size: 0.7rem;
-      color: var(--text-dim);
-      letter-spacing: 1px;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      min-width: 70px;
+      color: var(--gold);
+      min-width: 80px;
     }
 
-    .contact-link-val {
+    .ci-val {
       font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s;
     }
+
+    .contact-item:hover .ci-val { color: var(--gold2); }
 
     /* ── FOOTER ── */
     footer {
+      background: #071527;
       text-align: center;
-      padding: 2rem;
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--text-dim);
-      letter-spacing: 1px;
-      border-top: 1px solid var(--border);
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      font-weight: 300;
     }
+
+    footer strong { color: var(--gold); font-weight: 600; }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeLeft {
-      from { opacity: 0; transform: translate(20px, -50%); }
-      to   { opacity: 1; transform: translate(0, -50%); }
+      from { opacity: 0; transform: translateX(18px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── CURSOR ── */
-    .cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1em;
-      background: var(--red);
-      margin-left: 2px;
-      animation: blink 1s step-end infinite;
-      vertical-align: text-bottom;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       #hero { padding: 80px 1.5rem 3rem; }
-      .hero-stats { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .exp-card { grid-template-columns: 1fr; gap: 0.5rem; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .section-wrap, .section-wrap.alt { padding: 4rem 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      #contact { padding: 4rem 1.5rem; }
     }
   </style>
 </head>
@@ -846,442 +828,488 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">ASM_TAHMIR.exe</div>
+  <div class="nav-name">A S M Tahmir Hasan</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#homelab">Homelab</a></li>
-    <li><a href="#certs">Certs</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
-<div id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <p class="hero-tag">// Cybersecurity Engineering Student</p>
-    <h1 class="hero-name">A S M<br>Tahmir<br><span>Hasan</span></h1>
-    <p class="hero-desc">
-      Aspiring CISO with a passion for penetration testing, enterprise security, and homelab infrastructure.
-      Currently pursuing a BS in Cybersecurity Engineering at the University of Kansas.
-    </p>
-    <div class="hero-links">
-      <a href="https://github.com/sky360-tech" target="_blank" class="btn btn-primary">GitHub</a>
-      <a href="https://linkedin.com/in/a-s-m-tahmir-hasan-211344264" target="_blank" class="btn btn-outline">LinkedIn</a>
-      <a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank" class="btn btn-outline">Credly Badges</a>
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Cybersecurity Professional</p>
+      <h1 class="hero-name">A S M Tahmir Hasan</h1>
+      <p class="hero-title">
+        <strong>BS Cybersecurity Engineering</strong> · University of Kansas · Class of 2030
+      </p>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">
+        Aspiring Chief Information Security Officer with a passion for penetration testing,
+        enterprise security infrastructure, and security operations. Cisco-certified with
+        hands-on homelab experience and a Business minor to bridge technical and leadership roles.
+      </p>
+      <div class="hero-btns">
+        <a href="https://linkedin.com/in/a-s-m-tahmir-hasan-211344264" target="_blank" class="btn btn-gold">LinkedIn</a>
+        <a href="https://github.com/sky360-tech" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank" class="btn btn-ghost">Credentials</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">At a Glance</div>
+      <div class="hero-card-item">
+        <span class="hci-label">Location</span>
+        <span class="hci-val">Overland Park, KS</span>
+      </div>
+      <div class="hero-card-item">
+        <span class="hci-label">University</span>
+        <span class="hci-val">Univ. of Kansas</span>
+      </div>
+      <div class="hero-card-item">
+        <span class="hci-label">Major</span>
+        <span class="hci-val">Cybersecurity Eng.</span>
+      </div>
+      <div class="hero-card-item">
+        <span class="hci-label">Minor</span>
+        <span class="hci-val">Business</span>
+      </div>
+      <div class="hero-card-item">
+        <span class="hci-label">Certifications</span>
+        <span class="hci-val">2 Cisco</span>
+      </div>
+      <div class="hero-card-item">
+        <span class="hci-label">Goal</span>
+        <span class="hci-val">CISO</span>
+      </div>
+      <div class="hero-card-item">
+        <span class="hci-label">Languages</span>
+        <span class="hci-val">English, Bengali</span>
+      </div>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="stat-box">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Cisco Certs</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">4+</div>
-      <div class="stat-label">Projects</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-num">2030</div>
-      <div class="stat-label">KU Grad Year</div>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section-header reveal">
-    <span class="section-num">01</span>
-    <h2 class="section-title">About</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="about-grid reveal">
-    <div class="about-text">
-      <p>I'm <strong>A S M Tahmir Hasan</strong>, a cybersecurity engineering student at the University of Kansas with a long-term goal of becoming a <strong>Chief Information Security Officer (CISO)</strong>.</p>
-      <p>I'm passionate about penetration testing, enterprise infrastructure, and security operations. Outside of class, I run a full homelab where I practice real-world attack and defense scenarios daily.</p>
-      <p>I hold two Cisco certifications — Ethical Hacker and Introduction to Cybersecurity — and I'm constantly working toward my next goal: earning an <strong>OSCP certification</strong>.</p>
-      <p>I'm fluent in English and Bengali, and I bring both a technical mindset and a business perspective (minor in Business at KU) to every problem I tackle.</p>
+<div class="section-wrap">
+  <div id="about">
+    <div class="reveal">
+      <p class="section-label">Introduction</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="about-details">
-      <div class="detail-row">
-        <span class="detail-label">Location</span>
-        <span class="detail-val">Overland Park, KS</span>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>I'm <strong>A S M Tahmir Hasan</strong>, a Cybersecurity Engineering student at the University of Kansas with a long-term goal of becoming a <strong>Chief Information Security Officer (CISO)</strong>. I'm pursuing a Business minor alongside my engineering degree to develop the leadership and organizational skills that separate great security engineers from great security executives.</p>
+        <p>I hold two Cisco certifications — <strong>Ethical Hacker</strong> and <strong>Introduction to Cybersecurity</strong> — and I supplement my coursework with a full enterprise-style homelab where I practice penetration testing, network security, and infrastructure management daily.</p>
+        <p>I'm seeking internship and entry-level opportunities in cybersecurity where I can contribute technically while continuing to grow toward a leadership track.</p>
       </div>
-      <div class="detail-row">
-        <span class="detail-label">University</span>
-        <span class="detail-val">University of Kansas</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Degree</span>
-        <span class="detail-val">BS Cybersecurity Engineering</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Minor</span>
-        <span class="detail-val">Business</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Goal</span>
-        <span class="detail-val">CISO</span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">Email</span>
-        <span class="detail-val"><a href="mailto:tahmirhasanraid1@gmail.com">tahmirhasanraid1@gmail.com</a></span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">GitHub</span>
-        <span class="detail-val"><a href="https://github.com/sky360-tech" target="_blank">sky360-tech</a></span>
-      </div>
-      <div class="detail-row">
-        <span class="detail-label">LinkedIn</span>
-        <span class="detail-val"><a href="https://linkedin.com/in/a-s-m-tahmir-hasan-211344264" target="_blank">a-s-m-tahmir-hasan</a></span>
+      <div class="about-info">
+        <div class="info-row"><span class="info-key">Location</span><span class="info-val">Overland Park, KS</span></div>
+        <div class="info-row"><span class="info-key">Email</span><span class="info-val"><a href="mailto:tahmirhasanraid1@gmail.com">tahmirhasanraid1@gmail.com</a></span></div>
+        <div class="info-row"><span class="info-key">Phone</span><span class="info-val">(913) 299-7655</span></div>
+        <div class="info-row"><span class="info-key">LinkedIn</span><span class="info-val"><a href="https://linkedin.com/in/a-s-m-tahmir-hasan-211344264" target="_blank">a-s-m-tahmir-hasan</a></span></div>
+        <div class="info-row"><span class="info-key">GitHub</span><span class="info-val"><a href="https://github.com/sky360-tech" target="_blank">sky360-tech</a></span></div>
+        <div class="info-row"><span class="info-key">Credly</span><span class="info-val"><a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank">View Badges</a></span></div>
+        <div class="info-row"><span class="info-key">Languages</span><span class="info-val">English (Fluent), Bengali (Native)</span></div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- SKILLS -->
-<section id="skills" style="background: var(--dark2); max-width:100%; padding: 6rem 3rem;">
-<div style="max-width:1200px; margin:0 auto;">
-  <div class="section-header reveal">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Skills</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="skills-grid reveal">
-    <div class="skill-category">
-      <div class="skill-cat-title">Security Tools</div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Kali Linux</span><span class="skill-pct">90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Metasploit / Nmap</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Burp Suite</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Wireshark</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">pfSense</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
+<div class="section-wrap alt">
+  <div class="section-inner" id="skills">
+    <div class="reveal">
+      <p class="section-label">Technical Expertise</p>
+      <h2 class="section-title">Skills</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="skill-category">
-      <div class="skill-cat-title">Programming</div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Java</span><span class="skill-pct">65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-pct">60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Bash</span><span class="skill-pct">65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">R</span><span class="skill-pct">55%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="55%"></div></div></div>
-    </div>
-    <div class="skill-category">
-      <div class="skill-cat-title">Virtualization & Infra</div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Proxmox</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">VMware / VirtualBox</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Docker</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">OpenMediaVault</span><span class="skill-pct">70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Pi-hole</span><span class="skill-pct">80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-    </div>
-    <div class="skill-category">
-      <div class="skill-cat-title">Business & Data</div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Accounting</span><span class="skill-pct">60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="60%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Data Science</span><span class="skill-pct">55%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="55%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Web Design</span><span class="skill-pct">65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65%"></div></div></div>
-      <div class="skill-cat-title" style="margin-top:1.2rem;">Languages</div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">English</span><span class="skill-pct">100%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="100%"></div></div></div>
-      <div class="skill-item"><div class="skill-info"><span class="skill-name">Bengali</span><span class="skill-pct">100%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="100%"></div></div></div>
+    <div class="skills-grid reveal">
+      <div class="skill-group">
+        <div class="skill-group-title">Security Tools</div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Kali Linux</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-w="90%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Metasploit / Nmap</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Burp Suite</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Wireshark</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">pfSense</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-w="75%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Java</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" data-w="65%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">JavaScript</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" data-w="60%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Bash</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" data-w="65%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">R</span><span class="skill-pct">55%</span></div><div class="skill-track"><div class="skill-fill" data-w="55%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Virtualization & Infra</div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Proxmox</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">VMware / VirtualBox</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Docker</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" data-w="70%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Pi-hole</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">OpenMediaVault</span><span class="skill-pct">70%</span></div><div class="skill-track"><div class="skill-fill" data-w="70%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Business & Data</div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Accounting</span><span class="skill-pct">60%</span></div><div class="skill-track"><div class="skill-fill" data-w="60%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Data Science</span><span class="skill-pct">55%</span></div><div class="skill-track"><div class="skill-fill" data-w="55%"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Web Design</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" data-w="65%"></div></div></div>
+      </div>
     </div>
   </div>
 </div>
-</section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header reveal">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Experience</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="exp-list">
-    <div class="exp-card reveal">
-      <div class="exp-date">2024 – Present</div>
-      <div>
-        <div class="exp-role">Freelance Security Researcher</div>
-        <div class="exp-org">Self-Employed</div>
-        <ul class="exp-bullets">
-          <li>Built a personal pentesting lab from scratch to practice real attack scenarios outside of class.</li>
-          <li>Ran penetration tests and vulnerability scans on self-hosted targets, then wrote up findings.</li>
-          <li>Kept a running report of results to track progress and build out a hands-on security portfolio.</li>
-        </ul>
+<div class="section-wrap">
+  <div id="experience">
+    <div class="reveal">
+      <p class="section-label">Work History</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-date">2024 – Present</div>
+
+        </div>
+        <div>
+          <div class="exp-role">Freelance Security Researcher</div>
+          <ul class="exp-bullets">
+            <li>Built a personal pentesting lab from scratch to practice real attack scenarios outside of class.</li>
+            <li>Ran penetration tests and vulnerability scans on self-hosted targets, then wrote up findings.</li>
+            <li>Maintained a running portfolio of documented results to demonstrate hands-on security expertise.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-date">2025 – Present</div>
+          <div class="exp-org">Walmart<br>Overland Park, KS</div>
+        </div>
+        <div>
+          <div class="exp-role">Cashier</div>
+          <ul class="exp-bullets">
+            <li>Handled checkout for hundreds of customers daily, keeping lines moving during peak hours.</li>
+            <li>Processed cash, card, and return transactions accurately with minimal errors.</li>
+            <li>Stepped in on bagging, carts, and store upkeep whenever the front end was short-staffed.</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="exp-card reveal">
-      <div class="exp-date">2025 – Present</div>
-      <div>
-        <div class="exp-role">Cashier</div>
-        <div class="exp-org">Walmart — Overland Park, KS</div>
-        <ul class="exp-bullets">
-          <li>Handled checkout for hundreds of customers daily, keeping lines moving during peak hours.</li>
-          <li>Processed cash, card, and return transactions accurately with minimal errors.</li>
-          <li>Stepped in on bagging, carts, and store upkeep whenever the front end was short-staffed.</li>
-        </ul>
-      </div>
-    </div>
   </div>
-</section>
+</div>
 
 <!-- PROJECTS -->
-<section id="projects" style="background: var(--dark2); max-width:100%; padding: 6rem 3rem;">
-<div style="max-width:1200px; margin:0 auto;">
-  <div class="section-header reveal">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Projects</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="projects-grid reveal">
-    <div class="project-card">
-      <div class="project-title">Personal Cybersecurity Lab</div>
-      <div class="project-date">2024 – Present</div>
-      <div class="project-stack">
-        <span class="tag">Kali Linux</span><span class="tag">Metasploit</span><span class="tag">Nmap</span><span class="tag">Burp Suite</span><span class="tag">Metasploitable</span>
-      </div>
-      <ul class="project-bullets">
-        <li>Spun up VMs with known vulnerabilities to practice exploitation in a safe environment.</li>
-        <li>Ran full pen test workflows: recon with Nmap, exploitation with Metasploit, post-engagement writeups.</li>
-      </ul>
+<div class="section-wrap alt">
+  <div class="section-inner" id="projects">
+    <div class="reveal">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="project-card">
-      <div class="project-title">Web Design & Game Dev Projects</div>
-      <div class="project-date">2022 – 2025</div>
-      <div class="project-stack">
-        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Java</span>
+    <div class="projects-grid reveal">
+      <div class="project-card">
+        <div class="project-num">01 / Project</div>
+        <div class="project-title">Personal Cybersecurity Lab</div>
+        <div class="project-stack">
+          <span class="tag">Kali Linux</span><span class="tag">Metasploit</span><span class="tag">Nmap</span><span class="tag">Burp Suite</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Spun up VMs with known vulnerabilities to practice exploitation in a controlled environment.</li>
+          <li>Ran full pen test workflows: recon with Nmap, exploitation with Metasploit, post-engagement writeups.</li>
+        </ul>
       </div>
-      <ul class="project-bullets">
-        <li>Built web pages and interactive UI projects in Web Design class, earning an A.</li>
-        <li>Developed games in Software Development & Game Design freshman year.</li>
-        <li>Expanded into Java through Honors Java Programming and AP Computer Science A.</li>
-      </ul>
+      <div class="project-card">
+        <div class="project-num">02 / Project</div>
+        <div class="project-title">Jellyfin Media Server</div>
+        <div class="project-stack">
+          <span class="tag">Jellyfin</span><span class="tag">Docker</span><span class="tag">TrueNAS</span><span class="tag">Proxmox</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Self-hosted a full media server as a private Netflix alternative running on Proxmox.</li>
+          <li>Integrated with TrueNAS for centralized library management accessible across all devices.</li>
+          <li>Configured secure remote access with proper authentication for streaming anywhere.</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <div class="project-num">03 / Project</div>
+        <div class="project-title">Navidrome Music Server</div>
+        <div class="project-stack">
+          <span class="tag">Navidrome</span><span class="tag">Docker</span><span class="tag">Subsonic API</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Deployed Navidrome as a self-hosted Spotify replacement with full ownership of my music library.</li>
+          <li>Connected mobile and desktop clients via the Subsonic API for seamless streaming.</li>
+          <li>Eliminated reliance on third-party platforms — all data stays on personal hardware.</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <div class="project-num">04 / Project</div>
+        <div class="project-title">Immich Photo Library</div>
+        <div class="project-stack">
+          <span class="tag">Immich</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">TrueNAS</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Set up Immich as a self-hosted Google Photos replacement for private photo and video backup.</li>
+          <li>Configured automatic mobile backup so photos sync directly to on-premises storage.</li>
+          <li>Backed by TrueNAS with RAID redundancy to ensure zero data loss.</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <div class="project-num">05 / Project</div>
+        <div class="project-title">Self-Hosted AI LLM</div>
+        <div class="project-stack">
+          <span class="tag">Ollama</span><span class="tag">Open WebUI</span><span class="tag">Docker</span><span class="tag">Proxmox</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Deployed a local LLM using Ollama for completely private AI inference on personal hardware.</li>
+          <li>Set up Open WebUI as a ChatGPT-style frontend running entirely on-premises.</li>
+          <li>No data leaves the network — full control over the model, prompts, and history.</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <div class="project-num">06 / Project</div>
+        <div class="project-title">Web Design & Game Development</div>
+        <div class="project-stack">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Java</span>
+        </div>
+        <ul class="project-bullets">
+          <li>Built web pages and interactive UI projects in Web Design class, earning an A.</li>
+          <li>Developed games in Software Development & Game Design freshman year.</li>
+          <li>Expanded into Java through Honors Java Programming and AP Computer Science A.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-</section>
 
 <!-- HOMELAB -->
-<section id="homelab">
-  <div class="section-header reveal">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Homelab</h2>
-    <div class="section-line"></div>
-  </div>
-  <p class="homelab-intro reveal">
-    I run a full enterprise-style home lab on physical hardware using Proxmox as the hypervisor.
-    It's where I practice real-world security, networking, and infrastructure concepts daily —
-    everything from firewall management to self-hosted AI.
-  </p>
-  <div class="homelab-grid reveal">
-    <div class="homelab-card">
-      <div class="homelab-card-icon">🖥️</div>
-      <div class="homelab-card-title">Proxmox Hypervisor</div>
-      <div class="homelab-card-sub">Virtualization Platform</div>
-      <div class="homelab-card-desc">Multi-VM environment running on bare metal hardware, mirroring enterprise network architecture with isolated VLANs and resource management.</div>
+<div class="section-wrap">
+  <div id="homelab">
+    <div class="reveal">
+      <p class="section-label">Infrastructure</p>
+      <h2 class="section-title">Homelab</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">🔥</div>
-      <div class="homelab-card-title">pfSense Firewall</div>
-      <div class="homelab-card-sub">Network Security</div>
-      <div class="homelab-card-desc">Configured custom firewall rules, port forwarding, and traffic monitoring. Used to test and validate network security configurations against live traffic.</div>
-    </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">🚫</div>
-      <div class="homelab-card-title">Pi-hole DNS</div>
-      <div class="homelab-card-sub">DNS Filtering & Ad Blocking</div>
-      <div class="homelab-card-desc">Network-wide DNS filtering and ad blocking. Monitors DNS queries across all devices to detect suspicious lookups and block malicious domains.</div>
-    </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">💾</div>
-      <div class="homelab-card-title">TrueNAS</div>
-      <div class="homelab-card-sub">Personal Media Library</div>
-      <div class="homelab-card-desc">Self-hosted NAS running TrueNAS for personal media storage and streaming. Configured with RAID for redundancy and network shares for access across devices.</div>
-    </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">🤖</div>
-      <div class="homelab-card-title">Self-Hosted AI LLM</div>
-      <div class="homelab-card-sub">Local AI Inference</div>
-      <div class="homelab-card-desc">Deployed a local large language model instance for private AI inference. Runs entirely on-premises with no data leaving the network.</div>
-    </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">⚔️</div>
-      <div class="homelab-card-title">Pentest Environment</div>
-      <div class="homelab-card-sub">Kali Linux + Metasploitable</div>
-      <div class="homelab-card-desc">Isolated attack/defense network segment with Kali Linux attacker VM and intentionally vulnerable targets for daily exploitation practice.</div>
-    </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">🗄️</div>
-      <div class="homelab-card-title">OpenMediaVault</div>
-      <div class="homelab-card-sub">Storage Management</div>
-      <div class="homelab-card-desc">Web-based NAS management platform configured for centralized storage and file sharing across the lab environment.</div>
-    </div>
-    <div class="homelab-card">
-      <div class="homelab-card-icon">🐳</div>
-      <div class="homelab-card-title">Docker Containers</div>
-      <div class="homelab-card-sub">Service Deployment</div>
-      <div class="homelab-card-desc">Running multiple containerized services including monitoring dashboards, network tools, and web apps for learning and experimentation.</div>
+    <p class="homelab-intro reveal">
+      I run a full enterprise-style home lab on physical hardware using Proxmox as the hypervisor.
+      It's where I practice real-world security, networking, and infrastructure daily — from firewall
+      management and DNS filtering to self-hosted AI and personal media infrastructure.
+    </p>
+    <div class="homelab-grid reveal">
+      <div class="homelab-card">
+        <div class="homelab-card-title">Proxmox Hypervisor</div>
+        <div class="homelab-card-sub">Virtualization Platform</div>
+        <div class="homelab-card-desc">Multi-VM environment on bare metal hardware, mirroring enterprise network architecture with isolated segments and resource management.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">pfSense Firewall</div>
+        <div class="homelab-card-sub">Network Security</div>
+        <div class="homelab-card-desc">Custom firewall rules, port forwarding, and traffic monitoring. Used to test and validate network security configurations against live traffic.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">Pi-hole DNS Filtering</div>
+        <div class="homelab-card-sub">DNS Security</div>
+        <div class="homelab-card-desc">Network-wide DNS filtering monitoring queries across all devices to detect suspicious lookups and block malicious domains.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">TrueNAS</div>
+        <div class="homelab-card-sub">Personal Media Library</div>
+        <div class="homelab-card-desc">Self-hosted NAS running TrueNAS for personal media storage with RAID for redundancy and network shares across devices.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">Self-Hosted AI LLM</div>
+        <div class="homelab-card-sub">Local AI Inference</div>
+        <div class="homelab-card-desc">Local large language model instance for private AI inference running entirely on-premises with no data leaving the network.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">Pentest Environment</div>
+        <div class="homelab-card-sub">Kali Linux + Metasploitable</div>
+        <div class="homelab-card-desc">Isolated attack/defense network segment with intentionally vulnerable targets for daily exploitation and defense practice.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">OpenMediaVault</div>
+        <div class="homelab-card-sub">Storage Management</div>
+        <div class="homelab-card-desc">Web-based NAS management platform for centralized storage and file sharing across the lab environment.</div>
+      </div>
+      <div class="homelab-card">
+        <div class="homelab-card-title">Docker Containers</div>
+        <div class="homelab-card-sub">Service Deployment</div>
+        <div class="homelab-card-desc">Running multiple containerized services including monitoring dashboards, network tools, and web applications.</div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CERTIFICATIONS -->
-<section id="certs" style="background: var(--dark2); max-width:100%; padding: 6rem 3rem;">
-<div style="max-width:1200px; margin:0 auto;">
-  <div class="section-header reveal">
-    <span class="section-num">06</span>
-    <h2 class="section-title">Certifications</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="certs-grid reveal">
-    <div class="cert-card">
-      <div class="cert-icon">🛡️</div>
-      <div>
-        <div class="cert-name">Cisco Ethical Hacker</div>
-        <div class="cert-issuer">Cisco Networking Academy</div>
-        <div class="cert-date">Issued May 2026</div>
+<div class="section-wrap alt">
+  <div class="section-inner" id="certifications">
+    <div class="reveal">
+      <p class="section-label">Credentials</p>
+      <h2 class="section-title">Certifications</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="certs-grid reveal">
+      <div class="cert-card">
+        <div class="cert-badge">🛡️</div>
+        <div>
+          <div class="cert-name">Cisco Ethical Hacker</div>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-date">Issued May 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge">🔐</div>
+        <div>
+          <div class="cert-name">Introduction to Cybersecurity</div>
+          <div class="cert-issuer">Cisco Networking Academy</div>
+          <div class="cert-date">Issued December 2024</div>
+        </div>
       </div>
     </div>
-    <div class="cert-card">
-      <div class="cert-icon">🔐</div>
-      <div>
-        <div class="cert-name">Intro to Cybersecurity</div>
-        <div class="cert-issuer">Cisco Networking Academy</div>
-        <div class="cert-date">Issued Dec 2024</div>
-      </div>
+    <div style="margin-top:2rem;" class="reveal">
+      <a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank" class="btn btn-gold">View Verified Badges on Credly</a>
     </div>
-  </div>
-  <div style="margin-top:2rem;" class="reveal">
-    <a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank" class="btn btn-outline">View All Badges on Credly →</a>
   </div>
 </div>
-</section>
 
 <!-- EDUCATION -->
-<section id="education">
-  <div class="section-header reveal">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Education</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="edu-grid reveal">
-    <div class="edu-card">
-      <div class="edu-degree">BS Cybersecurity Engineering</div>
-      <div class="edu-school">University of Kansas — Lawrence, KS</div>
-      <div class="edu-detail">
-        Minor: Business<br>
-        Class of 2030
-      </div>
+<div class="section-wrap">
+  <div id="education">
+    <div class="reveal">
+      <p class="section-label">Academic Background</p>
+      <h2 class="section-title">Education</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="edu-card">
-      <div class="edu-degree">High School Diploma</div>
-      <div class="edu-school">Blue Valley North HS — Overland Park, KS</div>
-      <div class="edu-detail">
-        Graduated May 2026<br>
-        GPA: 4.02 Weighted | 3.88 Unweighted<br><br>
-        AP Computer Science Principles (A) · AP Environmental Science (A) · AP Precalculus (B)<br>
-        Honors Java Programming · Honors Accounting · Honors Algebra II
+    <div class="edu-list">
+      <div class="edu-item reveal">
+        <div><div class="edu-year">2026 – 2030</div></div>
+        <div>
+          <div class="edu-degree">BS Cybersecurity Engineering</div>
+          <div class="edu-school">University of Kansas — Lawrence, KS</div>
+          <div class="edu-detail">Minor: Business &nbsp;·&nbsp; Class of 2030</div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="edu-item reveal">
+        <div><div class="edu-year">Graduated 2026</div></div>
+        <div>
+          <div class="edu-degree">High School Diploma</div>
+          <div class="edu-school">Blue Valley North High School — Overland Park, KS</div>
 
-<!-- ACTIVITIES -->
-<section id="activities" style="background: var(--dark2); max-width:100%; padding: 6rem 3rem;">
-<div style="max-width:1200px; margin:0 auto;">
-  <div class="section-header reveal">
-    <span class="section-num">08</span>
-    <h2 class="section-title">Activities & Leadership</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="activities-list reveal">
-    <div class="activity-card">
-      <div class="activity-title">Cybersecurity Club</div>
-      <div class="activity-meta">Blue Valley North HS — Grades 9–12</div>
-      <div class="activity-desc">Competed in CTF challenges at school and regional levels. Worked with teammates on attack and defense exercises to prep for competitions.</div>
-    </div>
-    <div class="activity-card">
-      <div class="activity-title">GenCyber Summer Camp</div>
-      <div class="activity-meta">University of Missouri–Kansas City — Summer 2024</div>
-      <div class="activity-desc">Selected participant for a 2-week intensive covering cryptography, defense tactics, and cybersecurity ethics.</div>
-    </div>
-    <div class="activity-card">
-      <div class="activity-title">Robotics Club</div>
-      <div class="activity-meta">Blue Valley North HS — Grades 9–12</div>
-      <div class="activity-desc">Wrote code and helped build robots for regional competitions alongside a small team.</div>
-    </div>
-    <div class="activity-card">
-      <div class="activity-title">Technology Mentor</div>
-      <div class="activity-meta">Community Volunteer — Grades 9–12</div>
-      <div class="activity-desc">Volunteered at a community center teaching seniors how to use their devices and stay safe online.</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-</section>
+
+<!-- ACTIVITIES -->
+<div class="section-wrap alt">
+  <div class="section-inner" id="activities">
+    <div class="reveal">
+      <p class="section-label">Involvement</p>
+      <h2 class="section-title">Activities & Leadership</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="act-grid reveal">
+      <div class="act-card">
+        <div class="act-title">Cybersecurity Club</div>
+        <div class="act-meta">Blue Valley North HS · Grades 9–12</div>
+        <div class="act-desc">Competed in CTF challenges at school and regional levels. Collaborated on attack and defense exercises to prepare for competitions.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-title">GenCyber Summer Camp</div>
+        <div class="act-meta">Univ. of Missouri–Kansas City · Summer 2024</div>
+        <div class="act-desc">Selected participant in a 2-week intensive program covering cryptography, cybersecurity defense, and ethical hacking.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-title">Robotics Club</div>
+        <div class="act-meta">Blue Valley North HS · Grades 9–12</div>
+        <div class="act-desc">Wrote code and helped build robots for regional competitions alongside a small engineering team.</div>
+      </div>
+      <div class="act-card">
+        <div class="act-title">Technology Mentor</div>
+        <div class="act-meta">Community Volunteer · Grades 9–12</div>
+        <div class="act-desc">Volunteered at a community center teaching seniors how to use their devices and stay safe online.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- CONTACT -->
 <div id="contact">
   <div class="contact-inner">
-    <div class="section-header reveal">
-      <span class="section-num">09</span>
+    <div class="reveal">
+      <p class="section-label">Get in Touch</p>
       <h2 class="section-title">Contact</h2>
-      <div class="section-line"></div>
+      <div class="section-rule"></div>
     </div>
     <div class="contact-grid reveal">
       <div class="contact-text">
-        <h2>Let's Connect</h2>
-        <p>I'm always open to new opportunities, collaborations, or just talking cybersecurity. Feel free to reach out through any of the links below.</p>
+        <p>I'm actively seeking cybersecurity internships and entry-level opportunities. If you're looking for a motivated, technically-driven candidate with hands-on experience and a clear career vision, I'd love to connect.</p>
+        <a href="mailto:tahmirhasanraid1@gmail.com" class="btn btn-gold">Send an Email</a>
       </div>
-      <div class="contact-links">
-        <a href="mailto:tahmirhasanraid1@gmail.com" class="contact-link">
-          <span class="contact-link-label">Email</span>
-          <span class="contact-link-val">tahmirhasanraid1@gmail.com</span>
+      <div class="contact-items">
+        <a href="mailto:tahmirhasanraid1@gmail.com" class="contact-item">
+          <span class="ci-label">Email</span>
+          <span class="ci-val">tahmirhasanraid1@gmail.com</span>
         </a>
-        <a href="https://linkedin.com/in/a-s-m-tahmir-hasan-211344264" target="_blank" class="contact-link">
-          <span class="contact-link-label">LinkedIn</span>
-          <span class="contact-link-val">a-s-m-tahmir-hasan</span>
+        <a href="https://linkedin.com/in/a-s-m-tahmir-hasan-211344264" target="_blank" class="contact-item">
+          <span class="ci-label">LinkedIn</span>
+          <span class="ci-val">a-s-m-tahmir-hasan</span>
         </a>
-        <a href="https://github.com/sky360-tech" target="_blank" class="contact-link">
-          <span class="contact-link-label">GitHub</span>
-          <span class="contact-link-val">sky360-tech</span>
+        <a href="https://github.com/sky360-tech" target="_blank" class="contact-item">
+          <span class="ci-label">GitHub</span>
+          <span class="ci-val">sky360-tech</span>
         </a>
-        <a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank" class="contact-link">
-          <span class="contact-link-label">Credly</span>
-          <span class="contact-link-val">View My Badges</span>
+        <a href="https://credly.com/users/a-s-m-tahmir-hasan" target="_blank" class="contact-item">
+          <span class="ci-label">Credly</span>
+          <span class="ci-val">View Certifications</span>
         </a>
+        <div class="contact-item">
+          <span class="ci-label">Phone</span>
+          <span class="ci-val">(913) 299-7655</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <footer>
-  <span style="font-family:var(--mono); color:var(--red);">A S M Tahmir Hasan</span> · Cybersecurity Engineering Student · University of Kansas · Class of 2030
+  <strong>A S M Tahmir Hasan</strong> &nbsp;·&nbsp; Cybersecurity Engineering Student &nbsp;·&nbsp; University of Kansas &nbsp;·&nbsp; Class of 2030
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
 
-  // Skill bar animation
-  const skillObserver = new IntersectionObserver((entries) => {
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const skillObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-          bar.style.width = bar.dataset.width;
+        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w;
         });
-        skillObserver.unobserve(entry.target);
+        skillObs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll('.skills-grid').forEach(el => skillObserver.observe(el));
+
+  document.querySelectorAll('.skills-grid').forEach(el => skillObs.observe(el));
 </script>
 </body>
 </html>
